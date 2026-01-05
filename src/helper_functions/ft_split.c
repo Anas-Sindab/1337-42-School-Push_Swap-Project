@@ -6,7 +6,7 @@
 /*   By: anasinda <anasinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 02:38:47 by anasinda          #+#    #+#             */
-/*   Updated: 2026/01/05 07:02:42 by anasinda         ###   ########.fr       */
+/*   Updated: 2026/01/05 10:22:36 by anasinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static char	**ft_free_words(char **ptrs, int index)
 	return (NULL);
 }
 
-static char	**ft_allo(char **ptrs, char const *str, char *splitor, int words)
+static char	**ft_allo(char **ptrs, char *str, char *splitor, int words)
 {
 	int	index;
 	int	start;
@@ -78,7 +78,7 @@ static char	**ft_allo(char **ptrs, char const *str, char *splitor, int words)
 	return (ptrs);
 }
 
-char	**ft_split(char const *s, char *c)
+char	**ft_split(char *s, char *c)
 {
 	int		words;
 	char	**ptrs;

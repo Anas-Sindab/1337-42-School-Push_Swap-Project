@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anasinda <anasinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 02:42:56 by anasinda          #+#    #+#             */
-/*   Updated: 2026/01/05 12:00:46 by anasinda         ###   ########.fr       */
+/*   Created: 2026/01/05 12:06:31 by anasinda          #+#    #+#             */
+/*   Updated: 2026/01/05 12:07:01 by anasinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/helper_functions.h"
+#include "../../includes/get_next_line.h"
 
-char	*ft_substr(char *s, int start, int len)
+char	*ft_strchr(const char *s, int c)
 {
-	int		size;
-	int		i;
-	char	*ptr;
+	int	i;
 
-	if (!s)
-		return (NULL);
-	if (start >= ft_strlen(s))
-		return (ft_strdup(""));
-	size = ft_strlen(s + start);
-	if (size > len)
-		size = len;
-	ptr = malloc(sizeof(char) * (size + 1));
-	if (!ptr)
-		return (NULL);
 	i = 0;
-	while (i < size)
+	while (s[i])
 	{
-		ptr[i] = s[start + i];
+		if ((unsigned char)s[i] == (unsigned char)c)
+		{
+			return ((char *)(s + i));
+		}
 		i++;
 	}
-	ptr[i] = '\0';
-	return (ptr);
+	if (s[i] == (char)c)
+		return ((char *)(s + i));
+	return (NULL);
 }

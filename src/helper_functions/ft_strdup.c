@@ -6,13 +6,13 @@
 /*   By: anasinda <anasinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 01:40:40 by anasinda          #+#    #+#             */
-/*   Updated: 2026/01/05 07:02:42 by anasinda         ###   ########.fr       */
+/*   Updated: 2026/01/05 10:17:08 by anasinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/helper_functions.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(char *s)
 {
 	int		i;
 	int		size;

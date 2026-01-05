@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_append.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anasinda <anasinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 02:42:56 by anasinda          #+#    #+#             */
-/*   Updated: 2026/01/05 12:00:46 by anasinda         ###   ########.fr       */
+/*   Created: 2026/01/05 12:07:21 by anasinda          #+#    #+#             */
+/*   Updated: 2026/01/05 12:07:42 by anasinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/helper_functions.h"
+#include "../../includes/get_next_line.h"
 
-char	*ft_substr(char *s, int start, int len)
+char	*ft_append(char *stash, char *buffer)
 {
-	int		size;
 	int		i;
+	int		j;
 	char	*ptr;
 
-	if (!s)
+	if (!stash)
+		stash = ft_strdup("");
+	if (!stash || !buffer)
 		return (NULL);
-	if (start >= ft_strlen(s))
-		return (ft_strdup(""));
-	size = ft_strlen(s + start);
-	if (size > len)
-		size = len;
-	ptr = malloc(sizeof(char) * (size + 1));
+	ptr = malloc(sizeof(char) * ((ft_strlen(stash) + ft_strlen(buffer)) + 1));
 	if (!ptr)
 		return (NULL);
 	i = 0;
-	while (i < size)
-	{
-		ptr[i] = s[start + i];
-		i++;
-	}
+	j = 0;
+	while (stash[j])
+		ptr[i++] = stash[j++];
+	j = 0;
+	while (buffer[j])
+		ptr[i++] = buffer[j++];
 	ptr[i] = '\0';
+	free(stash);
 	return (ptr);
 }

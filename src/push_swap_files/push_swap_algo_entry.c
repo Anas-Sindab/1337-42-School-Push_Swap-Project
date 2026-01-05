@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_header_file.hwap_algo_entry.c                             :+:      :+:    :+:   */
+/*   push_swap_algo_entry.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anasinda <anasinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/02 17:04:12 by anasinda          #+#    #+#             */
-/*   Updated: 2026/01/05 07:02:42 by anasinda         ###   ########.fr       */
+/*   Created: 2026/01/05 12:03:53 by anasinda          #+#    #+#             */
+/*   Updated: 2026/01/05 16:33:37 by anasinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,16 @@ void	ft_final_rotation(t_arg **stack_a, int size)
 	while (temp_a->pos_sorted != 0)
 	{
 		zero_index++;
-		index++;
 		temp_a = temp_a->next;
 	}
-	while (index > 0)
+	if (zero_index > size / 2)
+		zero_index = zero_index - size;
+	while (zero_index != 0)
 	{
-		if (zero_index <= size / 2)
-			ft_ra_rb(stack_a, 1);
+		if (zero_index > 0)
+			((ft_ra_rb(stack_a, 1)), (zero_index--));
 		else
-			ft_rra_rrb(stack_a, 1);
-		index--;
+			((ft_rra_rrb(stack_a, 1)), (zero_index++));
 	}
 }
 

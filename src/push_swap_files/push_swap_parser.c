@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_header_file.hwap_parser.c                                 :+:      :+:    :+:   */
+/*   push_swap_parser.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anasinda <anasinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/22 18:22:07 by anasinda          #+#    #+#             */
-/*   Updated: 2026/01/05 07:02:42 by anasinda         ###   ########.fr       */
+/*   Created: 2026/01/05 12:02:34 by anasinda          #+#    #+#             */
+/*   Updated: 2026/01/05 23:35:21 by anasinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,27 +90,6 @@ int	ft_double_check_signs(char **splited_args)
 	return (ft_free_and_check_sign(splited_args, &sign, 3));
 }
 
-int	ft_double_check_spaces(char *args)
-{
-	int	i;
-
-	i = 0;
-	if (ft_check_errors(args[i], "\t") == 0)
-		return (-1);
-	while (args[i])
-	{
-		while (ft_check_errors(args[i], "0123456789") == 0)
-			i++;
-		if (args[i] == '\0')
-			return (0);
-		else if (ft_check_errors(args[i + 1], "\t") == 0 || args[i + 1] == '\0')
-			return (-1);
-		else
-			i++;
-	}
-	return (0);
-}
-
 int	ft_arg_parser(char **args, t_arg **stack_a)
 {
 	int		i;
@@ -123,12 +102,8 @@ int	ft_arg_parser(char **args, t_arg **stack_a)
 		return (-1);
 	i = 0;
 	while (args[++i])
-		if (ft_double_check_spaces(args[i]) == -1)
-			return (-1);
-	i = 0;
-	while (args[++i])
 	{
-		splited_args = ft_split(args[i], " \t");
+		splited_args = ft_split(args[i], " ");
 		if (ft_double_check_signs(splited_args) == -1)
 			return (-1);
 	}

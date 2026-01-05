@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_header_file.hwap_header_file.h                            :+:      :+:    :+:   */
+/*   push_swap_header_file.h                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anasinda <anasinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/14 19:44:18 by anasinda          #+#    #+#             */
-/*   Updated: 2026/01/05 04:20:06 by anasinda         ###   ########.fr       */
+/*   Created: 2026/01/05 12:37:49 by anasinda          #+#    #+#             */
+/*   Updated: 2026/01/05 17:40:20 by anasinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ typedef struct s_arg
 	struct s_arg	*next;
 }					t_arg;
 
+int					ft_compare_moves(char *move, char *type);
+int					ft_use_moves(t_arg **stack_a, t_arg **stack_b, char *move);
+int					ft_read_moves(t_arg **stack_a, t_arg **stack_b);
 int					ft_lstsize(t_arg *list);
 t_arg				*create_node(int nb);
 void				add_node_back(t_arg **list, int nb);
@@ -57,7 +60,7 @@ int					ft_build_stack(char **splited_args, t_arg **stack_a,
 int					ft_check_args(char **args, char *errors);
 int					ft_check_errors(char str_index, char *errors);
 int					ft_check_if_sorted(int size_stack, t_arg *stack_a);
-int					ft_double_check_signs(char **splited_args);
+int					ft_double_check(char **splited_args);
 int					ft_double_check_spaces(char *args);
 int					ft_free_and_check_sign(char **splited_args, int *sign,
 						int check);

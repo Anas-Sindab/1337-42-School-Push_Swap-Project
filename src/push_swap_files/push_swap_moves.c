@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_header_file.hwap_moves.c                                  :+:      :+:    :+:   */
+/*   push_swap_moves.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anasinda <anasinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/05 01:41:09 by anasinda          #+#    #+#             */
-/*   Updated: 2026/01/05 07:02:42 by anasinda         ###   ########.fr       */
+/*   Created: 2026/01/05 12:02:49 by anasinda          #+#    #+#             */
+/*   Updated: 2026/01/05 12:02:52 by anasinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	ft_sa_sb(t_arg **list, int check)
 	t_arg	*first_index;
 	t_arg	*sec_index;
 
+	if (!list || !(*list) || !(*list)->next)
+		return ;
 	first_index = *list;
 	sec_index = (*list)->next;
 	first_index->next = sec_index->next;
@@ -53,6 +55,8 @@ void	ft_ra_rb(t_arg **list, int check)
 	t_arg	*first_index;
 	t_arg	*last_index;
 
+	if (!list || !(*list) || !(*list)->next)
+		return ;
 	first_index = *list;
 	last_index = *list;
 	while (last_index->next != NULL)

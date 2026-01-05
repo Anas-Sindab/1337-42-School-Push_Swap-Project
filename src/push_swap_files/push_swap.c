@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_header_file.hwap.c                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anasinda <anasinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 18:02:41 by anasinda          #+#    #+#             */
-/*   Updated: 2026/01/05 04:38:12 by anasinda         ###   ########.fr       */
+/*   Created: 2026/01/05 12:02:19 by anasinda          #+#    #+#             */
+/*   Updated: 2026/01/05 23:16:20 by anasinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	main(int argc, char **argv)
 	ft_create_value_array(size_stack, &stack_a);
 	ft_index_nodes(&stack_a);
 	if (ft_check_if_sorted(size_stack, stack_a) != -1)
-		exit(0);
+		return ((ft_free_args_nodes(NULL, &stack_a, 0)), (0));
 	ft_check_which_sort(size_stack, &stack_a, &stack_b);
 	return ((ft_free_args_nodes(NULL, &stack_a, 0)), (0));
 }
