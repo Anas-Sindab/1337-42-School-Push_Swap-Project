@@ -6,11 +6,11 @@
 /*   By: anasinda <anasinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:06:06 by anasinda          #+#    #+#             */
-/*   Updated: 2025/12/23 00:27:30 by anasinda         ###   ########.fr       */
+/*   Updated: 2026/01/05 07:02:42 by anasinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_utilities.h"
+#include "../../includes/helper_functions.h"
 #include <stdio.h>
 
 long long	ft_atoi(const char *nptr)

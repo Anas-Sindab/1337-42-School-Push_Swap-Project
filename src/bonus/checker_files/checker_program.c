@@ -1,47 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_header_file.hwap.c                                        :+:      :+:    :+:   */
+/*   checker_program.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anasinda <anasinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 18:02:41 by anasinda          #+#    #+#             */
-/*   Updated: 2026/01/05 04:38:12 by anasinda         ###   ########.fr       */
+/*   Created: 2026/01/05 06:38:10 by anasinda          #+#    #+#             */
+/*   Updated: 2026/01/05 07:07:55 by anasinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_printf.h"
+#include "../../../includes/ft_printf.h"
+#include "../../includes/helper_functions.h"
 #include "../../includes/push_swap_header_file.h"
 
-int	ft_abs(int num)
+void	ft_use_moves(t_arg	**stack_a,	t_arg	**stack_b,	char *move)
 {
-	if (num < 0)
-		num = num * -1;
-	return (num);
+	int	count;
+
+	count = ft_strle
 }
 
-int	ft_max_return(int mpa, int mpb)
-{
-	if (mpa > mpb)
-		return (mpa);
-	return (mpb);
-}
-
-void	ft_check_which_sort(int size_stack, t_arg **stack_a, t_arg **stack_b)
-{
-	if (size_stack == 2)
-		ft_sort_two(stack_a);
-	else if (size_stack == 3)
-		ft_sort_three(stack_a);
-	else if (size_stack > 3 && size_stack <= 5)
-		ft_sort_five(size_stack, stack_a, stack_b);
-	else if (size_stack > 5)
-		ft_sort_bigger_numbers(size_stack, stack_a, stack_b);
-}
-
-int	main(int argc, char **argv)
+int	main(int	argc,	char **argv)
 {
 	int		size_stack;
+	char	*move;
 	t_arg	*stack_a;
 	t_arg	*stack_b;
 
@@ -56,6 +39,14 @@ int	main(int argc, char **argv)
 	ft_index_nodes(&stack_a);
 	if (ft_check_if_sorted(size_stack, stack_a) != -1)
 		exit(0);
-	ft_check_which_sort(size_stack, &stack_a, &stack_b);
-	return ((ft_free_args_nodes(NULL, &stack_a, 0)), (0));
+	while ((move = get_next_line(0)))
+	{
+		ft_use_moves(stack_a, stack_b, move);
+		free(move);
+	}
+	if (ft_check_if_sorted(size_stack, stack_a) == -1)
+		ft_printf("KO\n");
+	else
+		ft_printf("OK\n");
+
 }

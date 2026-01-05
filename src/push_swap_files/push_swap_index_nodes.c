@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_index_nodes.c                            :+:      :+:    :+:   */
+/*   push_swap_header_file.hwap_index_nodes.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anasinda <anasinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 00:56:07 by anasinda          #+#    #+#             */
-/*   Updated: 2026/01/04 19:41:08 by anasinda         ###   ########.fr       */
+/*   Updated: 2026/01/05 07:02:42 by anasinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
-#include "../../includes/ft_utilities.h"
+#include "../../includes/helper_functions.h"
 #include "../../includes/push_swap_header_file.h"
 
-int	ft_check_if_sorted(int	size_stack, t_arg	*stack_a)
+int	ft_check_if_sorted(int size_stack, t_arg *stack_a)
 {
 	int	i;
 
@@ -29,16 +29,16 @@ int	ft_check_if_sorted(int	size_stack, t_arg	*stack_a)
 	}
 	return (1);
 }
+
 void	ft_create_value_array(int size_stack, t_arg **stack_a)
 {
-	int	i;
-	int	*sorted_stack_array;
-	t_arg *temp_stack;
+	int		i;
+	int		*sorted_stack_array;
+	t_arg	*temp_stack;
 
 	sorted_stack_array = malloc(sizeof(int) * size_stack);
 	if (!sorted_stack_array)
-		return	;
-
+		return ;
 	i = 0;
 	temp_stack = *stack_a;
 	while (i < size_stack)
@@ -51,6 +51,7 @@ void	ft_create_value_array(int size_stack, t_arg **stack_a)
 	ft_index_nodes_sorted(size_stack, sorted_stack_array, stack_a);
 	free(sorted_stack_array);
 }
+
 int	*ft_sort_value_array(int *sorted_stack_array, int size_stack)
 {
 	int	i;
@@ -63,7 +64,7 @@ int	*ft_sort_value_array(int *sorted_stack_array, int size_stack)
 		j = i + 1;
 		while (j < size_stack)
 		{
-			if(sorted_stack_array[i] > sorted_stack_array[j])
+			if (sorted_stack_array[i] > sorted_stack_array[j])
 			{
 				temp = sorted_stack_array[i];
 				sorted_stack_array[i] = sorted_stack_array[j];
@@ -76,9 +77,10 @@ int	*ft_sort_value_array(int *sorted_stack_array, int size_stack)
 	return (sorted_stack_array);
 }
 
-void	ft_index_nodes_sorted(int size_stack, int	*sorted_stack_array, t_arg **stack_a)
+void	ft_index_nodes_sorted(int size_stack, int *sorted_stack_array,
+		t_arg **stack_a)
 {
-	int	index;
+	int		index;
 	t_arg	*temp_stack;
 
 	index = 0;
@@ -90,43 +92,24 @@ void	ft_index_nodes_sorted(int size_stack, int	*sorted_stack_array, t_arg **stac
 			(*stack_a)->pos_sorted = index;
 			(*stack_a) = temp_stack;
 			index++;
-		}else
+		}
+		else
 			(*stack_a) = (*stack_a)->next;
 	}
-	
-	// temp_stack = *stack_a;
-	// while (temp_stack)
-	// {
-	// 	printf("This is position value %d \n", (temp_stack)->value);
-	// 	temp_stack = (temp_stack)->next;
-	// }
-
-	// temp_stack = *stack_a;
-
-	// while (temp_stack)
-	// {
-	// 	printf("This is position position %d \n", (temp_stack)->pos_sorted);
-	// 	temp_stack = (temp_stack)->next;
-	// }
 }
 
 int	ft_index_nodes(t_arg **stacks)
 {
-	int	index;
+	int		index;
 	t_arg	*temp_stack;
 
 	temp_stack = *stacks;
-	// while (*stacks)
-	// {
-	// 	printf("THIS IS VALUE BITCH AT STACK A: %d \n", (*stacks)->value);
-	// 	*stacks = (*stacks)->next;
-	// }
 	index = 0;
-	while(*stacks)
+	while (*stacks)
 	{
-			(*stacks)->index = index;
-			*stacks = (*stacks)->next;
-			index++;
+		(*stacks)->index = index;
+		*stacks = (*stacks)->next;
+		index++;
 	}
 	*stacks = temp_stack;
 	return (index);

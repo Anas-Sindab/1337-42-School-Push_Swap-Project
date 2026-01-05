@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   helper_functions.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anasinda <anasinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 02:41:33 by anasinda          #+#    #+#             */
-/*   Updated: 2025/12/21 20:18:55 by anasinda         ###   ########.fr       */
+/*   Created: 2025/10/28 03:37:01 by anasinda          #+#    #+#             */
+/*   Updated: 2025/12/22 23:55:08 by anasinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_utilities.h"
+#ifndef HELPER_FUNCTIONS_H
+# define HELPER_FUNCTIONS_H
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
+# include <stdint.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-/*
-int main()
-{
-    char c = 'a';
-    char b = 'b';
-    char v = 'v';
-    // printf("%d\n", ft_strlen(&c + 1));
-    // printf("%d\n", ft_strlen(&b+ 2));
-    printf("%d\n", ft_strlen(&v));
-}*/
+long long	ft_atoi(const char *nptr);
+char		**ft_split(char const *s, char *c);
+char		*ft_strdup(const char *s);
+size_t		ft_strlen(const char *s);
+char		*ft_substr(char const *s, unsigned int start, size_t len);
+
+#endif

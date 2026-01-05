@@ -23,6 +23,6 @@ void	puthex_ft_printf(unsigned int hex, char check, int *count)
 	else
 		str = NULL;
 	if (hex >= 16)
-	puthex_ft_printf((hex / 16), check, count);
+		puthex_ft_printf((hex / 16), check, count);
 	putchar_ft_printf(str[(hex % 16)], count);
 }

@@ -6,14 +6,14 @@
 /*   By: anasinda <anasinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 02:38:47 by anasinda          #+#    #+#             */
-/*   Updated: 2025/12/21 22:35:21 by anasinda         ###   ########.fr       */
+/*   Updated: 2026/01/05 07:02:42 by anasinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_utilities.h"
+#include "../../includes/helper_functions.h"
 #include <stdio.h>
 
-static	int	ft_splitor_check(char str_index, char	*splitor)
+static int	ft_splitor_check(char str_index, char *splitor)
 {
 	int	i;
 
@@ -26,7 +26,8 @@ static	int	ft_splitor_check(char str_index, char	*splitor)
 	}
 	return (1);
 }
-static	int	ft_count_word(char const *str, char *splitor)
+
+static int	ft_count_word(char const *str, char *splitor)
 {
 	int	i;
 	int	words;
@@ -35,14 +36,15 @@ static	int	ft_count_word(char const *str, char *splitor)
 	words = 0;
 	while (str[i])
 	{
-		if (ft_splitor_check(str[i], splitor) && (str[i + 1] == '\0' || !ft_splitor_check(str[i + 1], splitor)))
+		if (ft_splitor_check(str[i], splitor) && (str[i + 1] == '\0'
+				|| !ft_splitor_check(str[i + 1], splitor)))
 			words++;
 		i++;
 	}
 	return (words);
 }
 
-static	char	**ft_free_words(char **ptrs, int index)
+static char	**ft_free_words(char **ptrs, int index)
 {
 	while (index >= 0)
 		free(ptrs[index--]);
@@ -50,8 +52,7 @@ static	char	**ft_free_words(char **ptrs, int index)
 	return (NULL);
 }
 
-
-static	char	**ft_allo(char **ptrs, char const *str, char *splitor, int words)
+static char	**ft_allo(char **ptrs, char const *str, char *splitor, int words)
 {
 	int	index;
 	int	start;
@@ -90,36 +91,3 @@ char	**ft_split(char const *s, char *c)
 		return (NULL);
 	return (ft_allo(ptrs, s, c, words));
 }
-
-// int main(void)
-// {
-//     char *str = "Hello	this ,ispaptest";
-//     char *delimiter = "	 ,";
-
-//     char **result = ft_split(str, delimiter);
-
-//     if (!result)
-//     {
-//         printf("ft_split failed\n");
-//         return 1;
-//     }
-
-//     // Print the split words
-//     int i = 0;
-//     while (result[i])
-//     {
-//         printf("Word %d: %s\n", i, result[i]);
-//         i++;
-//     }
-
-//     // Free allocated memory
-//     i = 0;
-//     while (result[i])
-//     {
-//         free(result[i]);
-//         i++;
-//     }
-//     free(result);
-
-//     return 0;
-// }

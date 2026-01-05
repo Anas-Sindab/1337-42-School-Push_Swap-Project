@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utilities.h                                     :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anasinda <anasinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 03:37:01 by anasinda          #+#    #+#             */
-/*   Updated: 2025/12/22 23:55:08 by anasinda         ###   ########.fr       */
+/*   Created: 2025/10/20 01:40:40 by anasinda          #+#    #+#             */
+/*   Updated: 2026/01/05 07:02:42 by anasinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_UTILITIES_H
-# define FT_UTILITIES_H
+#include "../../includes/helper_functions.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdint.h>
+char	*ft_strdup(const char *s)
+{
+	int		i;
+	int		size;
+	char	*ptr;
 
-long long	ft_atoi(const char *nptr);
-char	**ft_split(char const *s, char *c);
-char	*ft_strdup(const char *s);
-size_t	ft_strlen(const char *s);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-
-#endif
+	size = ft_strlen(s);
+	ptr = malloc(sizeof(char) * (size + 1));
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	while (i < size)
+	{
+		ptr[i] = s[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
+}

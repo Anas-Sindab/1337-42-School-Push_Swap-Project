@@ -1,40 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anasinda <anasinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/20 01:40:40 by anasinda          #+#    #+#             */
-/*   Updated: 2025/12/21 20:18:52 by anasinda         ###   ########.fr       */
+/*   Created: 2025/10/31 02:41:33 by anasinda          #+#    #+#             */
+/*   Updated: 2026/01/05 07:02:42 by anasinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_utilities.h"
+#include "../../includes/helper_functions.h"
 
-char	*ft_strdup(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	int		i;
-	int		size;
-	char	*ptr;
+	size_t	i;
 
-	size = ft_strlen(s);
-	ptr = malloc(sizeof(char) * (size + 1));
-	if (!ptr)
-		return (NULL);
 	i = 0;
-	while (i < size)
-	{
-		ptr[i] = s[i];
+	while (s[i])
 		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
+	return (i);
 }
-/*
-int main()
-{
-	char *s = "I am zed";
-	char *ptr = ft_strdup(s);
-	printf("%s \n", ptr);
-}*/
